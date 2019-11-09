@@ -5,7 +5,7 @@ Solution was gracefully provided by [@fatso83](https://github.com/fatso83) in an
 The problem is with there being both global and window, due to JSDOM usage in this setup. Creating fake timers as:
 ```js
 const now = new Date();
-const clock = sinon.useFakeTimers({ target: window, now });
+const clock = sinon.useFakeTimers({ target: global, now });
 ```
 solves the issue.
 
