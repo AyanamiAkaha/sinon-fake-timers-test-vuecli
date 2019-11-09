@@ -1,3 +1,15 @@
+# solution
+
+Solution was gracefully provided by [@fatso83](https://github.com/fatso83) in answer to my ticket: https://github.com/sinonjs/sinon/issues/2155
+
+The problem is with there being both global and window, due to JSDOM usage in this setup. Creating fake timers as:
+```js
+const now = new Date();
+const clock = sinon.useFakeTimers({ target: window, now });
+```
+solves the issue.
+
+
 # fake-timers-test
 
 ## Project setup
